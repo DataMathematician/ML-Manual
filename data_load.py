@@ -1,5 +1,6 @@
 import pandas as pd
 from perceptron import Perceprton
+from adaline import Adaline
 from decision_regions import plot_decision_regions
 
 data = pd.read_csv('iris.csv')
@@ -25,3 +26,6 @@ ppn.fit(X,y)
 plt.plot(range(1,len(ppn.errors_) + 1), ppn.errors_,marker='o')
 
 plot_decision_regions(X,y,classifier=ppn)
+
+ada = Adaline().fit(X,y)
+plt.plot(range(1,len(ada.cost_)+1), ada.cost_,marker='o')
